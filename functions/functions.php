@@ -20,6 +20,16 @@ require_once "connect.php";
 		closeDB();
     }
 
+    function nomer_konkurs($number) {
+		global $mysqli;
+		connectDB();
+		$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+		while (($row = $result_set->fetch_assoc()) != false){
+			echo $row["nomer_konkurs"];
+		};
+		closeDB();
+    }
+
     function naimenovanie_podrazd($number) {
 		global $mysqli;
 		connectDB();
@@ -36,6 +46,28 @@ require_once "connect.php";
 		$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
 		while (($row = $result_set->fetch_assoc()) != false){
 			echo $row["naimenovanie_zakazchik"];
+		};
+		closeDB();
+    }
+#________________________Для получения значений организатора 
+#________________________и заказчика________________________
+
+    function naimenovanie_podrazd_n($number) {
+		global $mysqli;
+		connectDB();
+		$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+		while (($row = $result_set->fetch_assoc()) != false){
+			return $row["naimenovanie_podrazd"];
+		};
+		closeDB();
+    }
+
+    function naimenovanie_zakazchik_n($number) {
+		global $mysqli;
+		connectDB();
+		$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+		while (($row = $result_set->fetch_assoc()) != false){
+			return $row["naimenovanie_zakazchik"];
 		};
 		closeDB();
     }
@@ -59,6 +91,19 @@ require_once "connect.php";
 		};
 		closeDB();
     }
+
+    #__________________Для получения числового значения выделенного лимита
+    #__________________больше ли 4000 МРП_________________________________
+
+    function vydelennyi_limit_n($number) {
+		global $mysqli;
+		connectDB();
+		$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+		while (($row = $result_set->fetch_assoc()) != false){
+			return $row["vydelennyi_limit"];
+		};
+		closeDB();
+    }    
 
     function predusmotr_summ($number) {
 		global $mysqli;

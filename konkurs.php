@@ -48,76 +48,123 @@
                 <td>16</td>
                 <td>17</td>
             </tr>
-
-            <?php
-               # if ($num==0) 
-            ?>
             <tr>
                 <td colspan="17">Конкурс свыше 4000 МРП</td>
             </tr>
+
+            <?php
+# ------------------------Код для таблицы превышения 40000 МРG
+#------------------------------------------------------------------------------------
+               for ($i = $num; $i >= 1; $i--) {
+                    if (vydelennyi_limit_n($i) < 40000) {
+                        continue;  
+                    }
+            ?>
+
             <tr>
-                <td><?= id_konkurs(2); ?></td>
-                <td><?= naimenovanie_podrazd(2); ?></td>
-                <td><?= naimenovanie_zakazchik(2); ?></td>
-                <td><?= naimenovanie_konkurs(2); ?></td>
-                <td><?= vydelennyi_limit(2); ?></td>
-                <td><?= predusmotr_summ(2); ?></td>
-                <td><?= plan_data_objavl(2); ?></td>
-                <td><?= plan_data_prov(2); ?></td>
-                <td><?= fact_data_objavl(2); ?></td>
-                <td><?= fact_data_prov(2); ?></td>
-                <td><?= data_itog(2); ?></td>
-                <td><?= summ_sost_lot(2); ?></td>
-                <td><?= summ_nesost_lot(2); ?></td>
-                <td><?= econom_sost_lot(2); ?></td>
-                <td><?= sposob_odin_ist(2); ?></td>
-                <td><?= summ_povtor(2); ?></td>
-                <td><?= prim(2); ?></td>
+                <td><?= nomer_konkurs($i); ?></td>
+                <td><?= naimenovanie_podrazd($i); ?></td>
+                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= vydelennyi_limit($i); ?></td>
+                <td><?= predusmotr_summ($i); ?></td>
+                <td><?= plan_data_objavl($i); ?></td>
+                <td><?= plan_data_prov($i); ?></td>
+                <td><?= fact_data_objavl($i); ?></td>
+                <td><?= fact_data_prov($i); ?></td>
+                <td><?= data_itog($i); ?></td>
+                <td><?= summ_sost_lot($i); ?></td>
+                <td><?= summ_nesost_lot($i); ?></td>
+                <td><?= econom_sost_lot($i); ?></td>
+                <td><?= sposob_odin_ist($i); ?></td>
+                <td><?= summ_povtor($i); ?></td>
+                <td><?= prim($i); ?></td>
             </tr>
+            <?php
+#_________________________________Закрытие скобок свыше 4000МРП
+               }
+            ?>
             <tr>
                 <td colspan="17">Конкурс до 4000 МРП</td>
             </tr>
+            
+            <?php
+# ------------------------Код для таблицы меньше 40000 МРG
+#------------------------------------------------------------------------------------
+               for ($i = $num; $i >= 1; $i--) {
+                    if (vydelennyi_limit_n($i) >= 40000) {
+                        continue;  
+                    }
+            ?>
+
             <tr>
-                <td><?= id_konkurs(2); ?></td>
-                <td><?= naimenovanie_podrazd(2); ?></td>
-                <td><?= naimenovanie_zakazchik(2); ?></td>
-                <td><?= naimenovanie_konkurs(2); ?></td>
-                <td><?= vydelennyi_limit(2); ?></td>
-                <td><?= predusmotr_summ(2); ?></td>
-                <td><?= plan_data_objavl(2); ?></td>
-                <td><?= plan_data_prov(2); ?></td>
-                <td><?= fact_data_objavl(2); ?></td>
-                <td><?= fact_data_prov(2); ?></td>
-                <td><?= data_itog(2); ?></td>
-                <td><?= summ_sost_lot(2); ?></td>
-                <td><?= summ_nesost_lot(2); ?></td>
-                <td><?= econom_sost_lot(2); ?></td>
-                <td><?= sposob_odin_ist(2); ?></td>
-                <td><?= summ_povtor(2); ?></td>
-                <td><?= prim(2); ?></td>
+                <td><?= nomer_konkurs($i); ?></td>
+                <td><?= naimenovanie_podrazd($i); ?></td>
+                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= vydelennyi_limit($i); ?></td>
+                <td><?= predusmotr_summ($i); ?></td>
+                <td><?= plan_data_objavl($i); ?></td>
+                <td><?= plan_data_prov($i); ?></td>
+                <td><?= fact_data_objavl($i); ?></td>
+                <td><?= fact_data_prov($i); ?></td>
+                <td><?= data_itog($i); ?></td>
+                <td><?= summ_sost_lot($i); ?></td>
+                <td><?= summ_nesost_lot($i); ?></td>
+                <td><?= econom_sost_lot($i); ?></td>
+                <td><?= sposob_odin_ist($i); ?></td>
+                <td><?= summ_povtor($i); ?></td>
+                <td><?= prim($i); ?></td>
             </tr>
+
+            <?php
+#_________________________________Закрытие скобок меньше 4000МРП
+               }
+            ?>
+
             <tr>
                 <td colspan="17">Способом из одного истчника</td>
             </tr>
+
+            <?php
+# ------------------------Код для таблицы превышения 40000 МРG
+#------------------------------------------------------------------------------------
+               for ($i = $num; $i >= 1; $i--) {
+                    if (naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) {
+                        continue;  
+                    }
+            ?>
+
             <tr>
-                <td><?= id_konkurs(2); ?></td>
-                <td><?= naimenovanie_podrazd(2); ?></td>
-                <td><?= naimenovanie_zakazchik(2); ?></td>
-                <td><?= naimenovanie_konkurs(2); ?></td>
-                <td><?= vydelennyi_limit(2); ?></td>
-                <td><?= predusmotr_summ(2); ?></td>
-                <td><?= plan_data_objavl(2); ?></td>
-                <td><?= plan_data_prov(2); ?></td>
-                <td><?= fact_data_objavl(2); ?></td>
-                <td><?= fact_data_prov(2); ?></td>
-                <td><?= data_itog(2); ?></td>
-                <td><?= summ_sost_lot(2); ?></td>
-                <td><?= summ_nesost_lot(2); ?></td>
-                <td><?= econom_sost_lot(2); ?></td>
-                <td><?= sposob_odin_ist(2); ?></td>
-                <td><?= summ_povtor(2); ?></td>
-                <td><?= prim(2); ?></td>
+                <td><?= nomer_konkurs($i); ?></td>
+                <td><?= naimenovanie_podrazd($i); ?></td>
+                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= vydelennyi_limit($i); ?></td>
+                <td><?= predusmotr_summ($i); ?></td>
+                <td><?= plan_data_objavl($i); ?></td>
+                <td><?= plan_data_prov($i); ?></td>
+                <td><?= fact_data_objavl($i); ?></td>
+                <td><?= fact_data_prov($i); ?></td>
+                <td><?= data_itog($i); ?></td>
+                <td><?= summ_sost_lot($i); ?></td>
+                <td><?= summ_nesost_lot($i); ?></td>
+                <td><?= econom_sost_lot($i); ?></td>
+                <td><?= sposob_odin_ist($i); ?></td>
+                <td><?= summ_povtor($i); ?></td>
+                <td><?= prim($i); ?></td>
             </tr>
+
+            <?php
+#_________________________________Закрытие скобок способом из одного источника
+               }
+            ?>
+
         </table>
+		<form method="get" action="add_konkurs.php">	
+			<h3>Внести новые данные по конкурсу</h3>
+			<input type="submit" value="Подтвердить">
+		</form>
+
 	</body>
 </html>
