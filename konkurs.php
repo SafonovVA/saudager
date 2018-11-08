@@ -161,7 +161,7 @@
             ?>
 
         </table>
-		<form method="get" action="add_konkurs.php">	
+		<form method="get" action="add_konkurs_form.php">	
 			<h3>Внести новые данные по конкурсу</h3>
 			<input type="submit" value="Подтвердить">
 		</form>

@@ -6,7 +6,7 @@
 		?>
 	</head>
 	<body>
-		<form method="get" action="konkurs.php">	
+		<form method="get" action="add_konkurs_base.php">	
 			<h3>Внесение данных по конкурсу</h3>
 			<input type="text" placeholder="№ п/п" name="nomer_konkurs"><br />
 			<input type="text" placeholder="Наименование организатора" name="naimenovanie_podrazd"><br />
