@@ -2,11 +2,13 @@
 	<head>
 		<?php
 			$title = "конкурс";
-			require_once "blocks/head.php";
+            require_once "blocks/head.php";
+            require_once "functions/functions.php";
+            $num = num_rows ();
 		?>
 	</head>
 	<body>
-        <h3>Сведения о конкурсах по состоянию на текущая дата</h3>
+        <h3>Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
         <table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
@@ -46,71 +48,75 @@
                 <td>16</td>
                 <td>17</td>
             </tr>
+
+            <?php
+               # if ($num==0) 
+            ?>
             <tr>
                 <td colspan="17">Конкурс свыше 4000 МРП</td>
             </tr>
             <tr>
-                <td>1first</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
+                <td><?= id_konkurs(2); ?></td>
+                <td><?= naimenovanie_podrazd(2); ?></td>
+                <td><?= naimenovanie_zakazchik(2); ?></td>
+                <td><?= naimenovanie_konkurs(2); ?></td>
+                <td><?= vydelennyi_limit(2); ?></td>
+                <td><?= predusmotr_summ(2); ?></td>
+                <td><?= plan_data_objavl(2); ?></td>
+                <td><?= plan_data_prov(2); ?></td>
+                <td><?= fact_data_objavl(2); ?></td>
+                <td><?= fact_data_prov(2); ?></td>
+                <td><?= data_itog(2); ?></td>
+                <td><?= summ_sost_lot(2); ?></td>
+                <td><?= summ_nesost_lot(2); ?></td>
+                <td><?= econom_sost_lot(2); ?></td>
+                <td><?= sposob_odin_ist(2); ?></td>
+                <td><?= summ_povtor(2); ?></td>
+                <td><?= prim(2); ?></td>
             </tr>
             <tr>
                 <td colspan="17">Конкурс до 4000 МРП</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
+                <td><?= id_konkurs(2); ?></td>
+                <td><?= naimenovanie_podrazd(2); ?></td>
+                <td><?= naimenovanie_zakazchik(2); ?></td>
+                <td><?= naimenovanie_konkurs(2); ?></td>
+                <td><?= vydelennyi_limit(2); ?></td>
+                <td><?= predusmotr_summ(2); ?></td>
+                <td><?= plan_data_objavl(2); ?></td>
+                <td><?= plan_data_prov(2); ?></td>
+                <td><?= fact_data_objavl(2); ?></td>
+                <td><?= fact_data_prov(2); ?></td>
+                <td><?= data_itog(2); ?></td>
+                <td><?= summ_sost_lot(2); ?></td>
+                <td><?= summ_nesost_lot(2); ?></td>
+                <td><?= econom_sost_lot(2); ?></td>
+                <td><?= sposob_odin_ist(2); ?></td>
+                <td><?= summ_povtor(2); ?></td>
+                <td><?= prim(2); ?></td>
             </tr>
             <tr>
                 <td colspan="17">Способом из одного истчника</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
+                <td><?= id_konkurs(2); ?></td>
+                <td><?= naimenovanie_podrazd(2); ?></td>
+                <td><?= naimenovanie_zakazchik(2); ?></td>
+                <td><?= naimenovanie_konkurs(2); ?></td>
+                <td><?= vydelennyi_limit(2); ?></td>
+                <td><?= predusmotr_summ(2); ?></td>
+                <td><?= plan_data_objavl(2); ?></td>
+                <td><?= plan_data_prov(2); ?></td>
+                <td><?= fact_data_objavl(2); ?></td>
+                <td><?= fact_data_prov(2); ?></td>
+                <td><?= data_itog(2); ?></td>
+                <td><?= summ_sost_lot(2); ?></td>
+                <td><?= summ_nesost_lot(2); ?></td>
+                <td><?= econom_sost_lot(2); ?></td>
+                <td><?= sposob_odin_ist(2); ?></td>
+                <td><?= summ_povtor(2); ?></td>
+                <td><?= prim(2); ?></td>
             </tr>
         </table>
 	</body>
