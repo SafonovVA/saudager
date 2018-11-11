@@ -7,7 +7,7 @@
 	</head>
 	<body>
         <?php
-        echo 'PIZDA';
+        echo 'DA';
 	        $nomer_konkurs = $_GET['nomer_konkurs'];
             $naimenovanie_podrazd = $_GET['naimenovanie_podrazd'];
             $naimenovanie_zakazchik = $_GET['naimenovanie_zakazchik'];
@@ -32,10 +32,15 @@
 
             closeDB ();
 
+            $login = file_get_contents('login.txt');
+
+   
             echo("<script>function func() {
                 location.href='konkurs.php'
                 }
             setTimeout(func,5)</script>");
+            
+       
         ?>
     </body>
 </html>

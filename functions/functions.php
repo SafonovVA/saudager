@@ -70,7 +70,8 @@ require_once "connect.php";
 			return $row["naimenovanie_zakazchik"];
 		};
 		closeDB();
-    }
+		}
+		#__________________________________________________________
 
     function naimenovanie_konkurs($number) {
 		global $mysqli;
@@ -225,8 +226,30 @@ require_once "connect.php";
 		closeDB();
     }
 
+    function vyshestoyashee_id_n($naimenovanie) {
+			global $mysqli;
+			connectDB();
+			switch($naimenovanie) {
+				case 2040: $bigger = 2; break;
+				case 2024: $bigger = 3; break;
+				case 2039: $bigger = 4; break;
+				case 2015: $bigger = 5; break;
+				case 2201: $bigger = 6; break;
+			}
+			for ($i = 0; $i<=51; $i++) {
+				$result_set = $mysqli->query("SELECT * FROM `podrazdelenie` WHERE `id_podrazd`= '$i'");	
+				while (($row = $result_set->fetch_assoc()) != false) {
+					if ($row["vyshestoyashee_id"] == $bigger) $arr[] = $row["naimenovanie_podrazd"];
+				};
+			}
+			return $arr;
+			closeDB();
+		}
 
-
-
+		function perebor ($arr) {
+			foreach ($arr as $value) {
+				$login = $value;
+			}
+		}
 
 ?>
