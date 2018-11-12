@@ -246,10 +246,8 @@ require_once "connect.php";
 			closeDB();
 		}
 
-		function perebor ($arr) {
-			foreach ($arr as $value) {
-				$login = $value;
-			}
-		}
+
+	#_______________________Инициализация массива Большой Пятерки
+		$great = [2040, 2024, 2039, 2015, 2201];
 
 ?>

@@ -11,7 +11,7 @@
 	<body>
         <h3>Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
         <h2><?=$login?></h2>
-        <h2><?=count(vyshestoyashee_id_n($login))?></h2>
+        <h2><?php print_r($great);?></h2>
         <table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
@@ -66,12 +66,20 @@
                         }
                     }
 
-                    elseif ($login == 2040 || $login == 2024 || $login == 2039 || $login == 2015 || $login == 2201) {
+                    elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                             if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;  
                         }
                     }
+
+
+                    // elseif ($login == 2040 || $login == 2024 || $login == 2039 || $login == 2015 || $login == 2201) {
+                    //     $reg = vyshestoyashee_id_n($login);
+                    //         if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
+                    //             continue;  
+                    //     }
+                    // }
 
                     else {
                         if (vydelennyi_limit_n($i) < 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
@@ -118,7 +126,7 @@
                         }
                     }
 
-                    elseif ($login == 2040 || $login == 2024 || $login == 2039 || $login == 2015 || $login == 2201) {
+                    elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                             if (vydelennyi_limit_n($i) > 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;  
@@ -171,7 +179,7 @@
                         }
                     }
                 
-                    elseif ($login == 2040 || $login == 2024 || $login == 2039 || $login == 2015 || $login == 2201) {
+                    elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                             if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;  
