@@ -11,7 +11,6 @@
 	<body>
         <h3>Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
         <h2><?=$login?></h2>
-        <h2><?php print_r($great);?></h2>
         <table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
