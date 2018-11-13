@@ -1,0 +1,11 @@
+﻿#table-rpg-list {
+    border: 4px solid black;
+    border-collapse: collapse;
+    margin-right: 7px;
+}
+
+#table-rpg-list td, th {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}

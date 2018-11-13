@@ -1,0 +1,122 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 90%;
+    min-width: 800px;
+    background-color: #fff;
+}
+
+#top {
+    background-image: url("../img/basground.gif");
+    background-position: center center;
+    background-repeat: repeat-x;
+    height: 110px;
+        
+}
+
+
+.newHeader {
+    margin: 0px 0px;
+    padding: 0px;
+    text-align: center;
+    min-width: 1024px;
+
+}
+
+.newHeaderCenter {
+    width: 1024px;
+    min-width: 1024px;
+    height: 110px;
+    margin: 0 auto;
+    background-image: url(../img/var8.gif);
+    background-repeat: no-repeat;
+    text-align: left;
+    
+}
+
+#content {
+    top: 110px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-image: url("../img/back30.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: auto !important;
+    left: 5px;
+}
+
+.loginForm {
+    background: url('../img/gerb1.gif') no-repeat scroll 20px 10px #008001;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 330px;
+    padding: 0 0 10px;
+    width: 500px;
+    margin-top: -150px;
+    margin-left: -250px;
+    /*border: 3px solid #868484;*/
+    display: block;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: transparent;
+}
+
+    .loginForm h4 {
+        font-size: 24px;
+        color: #458916;
+        text-align: left;
+        margin: 40px 20px 0 140px;
+    }
+
+ul li {
+    list-style: none;
+}
+
+.login-input {
+    height: 30px;
+    width: 400px;
+    border: solid 2px green;
+    text-align: center;
+}
+
+#input-label {
+    font-size: 16px;
+    font: bold 16px arial;
+}
+
+ul.login-form li a {
+    font: bold 16px arial;
+    color: green;
+    text-decoration: none;
+    left: 250px;
+    border: solid 1px green;
+    padding: 5px;
+}
+
+.ksa-select {
+    margin: 10px 10px 10px 10px;
+    
+}
+
+#ksa-table {
+    text-align: center;
+    font: bold 16px arial;
+    margin: auto;
+    vertical-align: middle;
+    
+    
+}
+
+.ksa-img td {
+    width: 150px;
+    height: 150px;
+    border: dotted 2px green; 
+}
+
+
