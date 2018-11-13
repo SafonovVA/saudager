@@ -68,6 +68,7 @@
 
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
+                        $reg[] = $login;
                             if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;  
                         }
@@ -121,7 +122,8 @@
 
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
-                            if (vydelennyi_limit_n($i) > 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
+                        $reg[] = $login;
+                            if (vydelennyi_limit_n($i) > 40000 || (!in_array(naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;  
                         }
                     }
@@ -174,6 +176,7 @@
                 
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
+                        $reg[] = $login;
                             if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;  
                         }
