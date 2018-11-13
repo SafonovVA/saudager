@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<?php
-			$title = "Внесение данных конкурса";
+			$title = "Внесение данных договора";
 			require_once "blocks/head.php";
 		?>
 	</head>
@@ -28,7 +28,7 @@
            
             connectDB ();
 
-            $mysqli->query ("INSERT INTO `konkurs` (`id_konkurs`, `nomer_konkurs`, `naimenovanie_podrazd`, `naimenovanie_zakazchik`, `naimenovanie_konkurs`, `vydelennyi_limit`, `predusmotr_summ`, `plan_data_objavl`, `plan_data_prov`, `fact_data_objavl`, `fact_data_prov`, `data_itog`, `summ_sost_lot`, `summ_nesost_lot`, `econom_sost_lot`, `sposob_odin_ist`, `summ_povtor`, `prim`) VALUES (NULL, '$nomer_konkurs', '$naimenovanie_podrazd', '$naimenovanie_zakazchik', '$naimenovanie_konkurs', '$vydelennyi_limit', '$predusmotr_summ', '$plan_data_objavl', '$plan_data_prov', '$fact_data_objavl', '$fact_data_prov', '$data_itog', '$summ_sost_lot', '$summ_nesost_lot', '$econom_sost_lot', '$sposob_odin_ist', '$summ_povtor', '$prim')");
+           # $mysqli->query ("INSERT INTO `dogovor` (`id_konkurs`, `nomer_konkurs`, `naimenovanie_podrazd`, `naimenovanie_zakazchik`, `naimenovanie_konkurs`, `vydelennyi_limit`, `predusmotr_summ`, `plan_data_objavl`, `plan_data_prov`, `fact_data_objavl`, `fact_data_prov`, `data_itog`, `summ_sost_lot`, `summ_nesost_lot`, `econom_sost_lot`, `sposob_odin_ist`, `summ_povtor`, `prim`) VALUES (NULL, '$nomer_konkurs', '$naimenovanie_podrazd', '$naimenovanie_zakazchik', '$naimenovanie_konkurs', '$vydelennyi_limit', '$predusmotr_summ', '$plan_data_objavl', '$plan_data_prov', '$fact_data_objavl', '$fact_data_prov', '$data_itog', '$summ_sost_lot', '$summ_nesost_lot', '$econom_sost_lot', '$sposob_odin_ist', '$summ_povtor', '$prim')");
 
             closeDB ();
 
@@ -36,7 +36,7 @@
 
    
             echo("<script>function func() {
-                location.href='konkurs.php'
+                location.href='dogovor.php'
                 }
             setTimeout(func,5)</script>");
             

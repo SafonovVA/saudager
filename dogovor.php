@@ -1,36 +1,38 @@
 <html>
 	<head>
 		<?php
-			$title = "Конкурсы";
+			$title = "Договоры";
             require_once "blocks/head.php";
-            require_once "functions/functions_konkurs.php";
+            require_once "functions/functions_dogovor.php";
             $login = file_get_contents('login.txt');
-            $num = num_rows ();
+            $num = num_rows_dogovor ();
 		?>
 	</head>
 	<body>
-        <a href="dogovor.php">Договоры</a>
-        <h3>Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
+        <a href="konkurs.php">Конкурсы</a>
+        <h3>Сведения о договорах по состоянию на <?=date('d.m.Y')?> года</h3>
         <h2><?=$login?></h2>
         <table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
-                <th>Наименование организатора</th>
-                <th>Наименование заказчика</th>
-                <th>Наименование закупаемых товаров, работ, услуг (наименование конкурса)</th>
-                <th>Выделенный лимит по плану финансирования (тыс. тенге)</th>
-                <th>Предусмотренная сумма по плану государственных закупок без учета НДС (тыс. тенге)</th>
-                <th>Дата объявления по план графику</th>
-                <th>Дата проведения по план графику</th>
-                <th>Фактическая дата объявления</th>
-                <th>Фактическая дата проведения</th>
-                <th>Дата подведения итогов</th>
-                <th>Сумма по состоявшимся лотам без учета НДС (тенге)</th>
-                <th>Сумма по не состоявшимся лотам без учета НДС (тенге)</th>
-                <th>Экономия по состоявшимся лотам без учета НДС (тенге)</th>
-                <th>Способом из одного источника по несостоявшимся лотам без учета НДС</th>
-                <th>Сумма на повторный конкурс по несостоявшимся лотам без учета НДС (тенге)</th>
-                <th>Примечание</th>
+                <th>Наименование конкурса</th>
+                <th>Заказчик</th>
+                <th>Поставщик</th>
+                <th>№ и дата договора</th>
+                <th>Предмет договора</th>
+                <th>Сумма договора без учета НДС</th>
+                <th>Сумма договора с учетом НДС</th>
+                <th>№ и дата внесения поставщиком обеспечения </th>
+                <th>Сумма внесенного обеспечения (с учетом???)</th>
+                <th>№ и дата заключения доп.</th>
+                <th>Сумма дополнительного без учета НДС</th>
+                <th>Сумма дополнительного с учетом НДС</th>
+                <th>Общая сумма договора без учета НДС</th>
+                <th>Общая сумма договора с учетом НДС</th>
+                <th>Срок исполнения договора</th>
+                <th>№ и дата акта исполнения договора</th>
+                <th>Сумма исполнения договора</th>
+
             </tr>
             <tr>
                 <td>1</td>
@@ -50,6 +52,7 @@
                 <td>15</td>
                 <td>16</td>
                 <td>17</td>
+                <td>18</td>
             </tr>
             <tr>
                 <td colspan="17">Конкурс свыше 4000 МРП</td>
@@ -84,23 +87,24 @@
             ?>
 
             <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= id_dogovor($i); ?></td>
                 <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
+                <td><?= zakazchik($i); ?></td>
+                <td><?= postavshik($i); ?></td>
+                <td><?= nomer_data_dogovor($i); ?></td>
+                <td><?= predmet_dogovor($i); ?></td>
+                <td><?= summa_dogovor_bez_nds($i); ?></td>
+                <td><?= summa_dogovor_s_nds($i); ?></td>
+                <td><?= nomer_data_postavsik($i); ?></td>
+                <td><?= summa_vnes_obesp($i); ?></td>
+                <td><?= nomer_data_dop($i); ?></td>
+                <td><?= summa_dop_bez_nds($i); ?></td>
+                <td><?= summa_dop_s_nds($i); ?></td>
+                <td><?= obw_summ_bez_nds($i); ?></td>
+                <td><?= obw_summ_s_nds($i); ?></td>
+                <td><?= srok_isp_dogovor($i); ?></td>
+                <td><?= nomer_data_akt_isp($i); ?></td>
+                <td><?= summa_isp_dogovor($i); ?></td>
             </tr>
             <?php
 #_________________________________Закрытие скобок свыше 4000МРП
@@ -215,8 +219,8 @@
             ?>
 
         </table>
-		<form method="get" action="add_konkurs_form.php">	
-			<h3>Внести новые данные по конкурсу</h3>
+		<form method="get" action="add_dogovor_form.php">	
+			<h3>Внести новые данные по договору</h3>
 			<input type="submit" value="Подтвердить">
 		</form>
 
