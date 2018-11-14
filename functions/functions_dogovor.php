@@ -2,13 +2,13 @@
 
 require_once "connect.php";
 
-	function num_rows_dogovor () {
-		global $mysqli;
-		connectDB();
-		$result = $mysqli->query("SELECT * FROM `dogovor` ORDER BY `id_dogovor` ASC");
-		closeDB();
-		return ($result->num_rows_dogovor);
-	}
+		function num_rows_dogovor () {
+			global $mysqli;
+			connectDB();
+			$result = $mysqli->query("SELECT * FROM `dogovor` ORDER BY `id_dogovor` ASC");
+			closeDB();
+			return ($result->num_rows);
+		}
 
     function id_dogovor($number) {
 		global $mysqli;
@@ -206,7 +206,7 @@ require_once "connect.php";
     function vydelennyi_limit_n($number) {
 		global $mysqli;
 		connectDB();
-		$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_dogovor`= '$number'");					
+		$result_set = $mysqli->query("SELECT * FROM `dogovor` WHERE `id_dogovor`= '$number'");					
 		while (($row = $result_set->fetch_assoc()) != false){
 			return $row["vydelennyi_limit"];
 		};
@@ -233,5 +233,37 @@ require_once "connect.php";
 			closeDB();
 		}
 
+		#________________________Для получения
+#________________________заказчика________________________
 
+function naimenovanie_podrazd_n($number) {
+	global $mysqli;
+	connectDB();
+	$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+	while (($row = $result_set->fetch_assoc()) != false){
+		return $row["naimenovanie_podrazd"];
+	};
+	closeDB();
+	}
+
+	function zakazchik_n($number) {
+	global $mysqli;
+	connectDB();
+	$result_set = $mysqli->query("SELECT * FROM `dogovor` WHERE `id_dogovor`= '$number'");					
+	while (($row = $result_set->fetch_assoc()) != false){
+		return $row["zakazchik_n"];
+	};
+	closeDB();
+	}
+	#__________________________________________________________
+
+	function obw_summ_s_nds_n($number) {
+		global $mysqli;
+		connectDB();
+		$result_set = $mysqli->query("SELECT * FROM `dogovor` WHERE `id_dogovor`= '$number'");					
+		while (($row = $result_set->fetch_assoc()) != false){
+			return $row["obw_summ_s_nds_n"];
+		};
+		closeDB();
+    }
 ?>

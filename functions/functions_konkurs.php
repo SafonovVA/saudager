@@ -2,13 +2,13 @@
 
 require_once "connect.php";
 
-	function num_rows () {
-		global $mysqli;
-		connectDB();
-		$result = $mysqli->query("SELECT * FROM `konkurs` ORDER BY `id_konkurs` ASC");
-		closeDB();
-		return ($result->num_rows);
-	}
+		function num_rows () {
+			global $mysqli;
+			connectDB();
+			$result = $mysqli->query("SELECT * FROM `konkurs` ORDER BY `id_konkurs` ASC");
+			closeDB();
+			return ($result->num_rows);
+		}
 
     function id_konkurs($number) {
 		global $mysqli;

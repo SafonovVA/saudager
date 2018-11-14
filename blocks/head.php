@@ -1,6 +1,5 @@
 <?php
 	require_once "functions/connect.php";
-
 ?>
 
 <meta charset="utf8">

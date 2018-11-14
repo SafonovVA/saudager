@@ -9,10 +9,14 @@
 		?>
 	</head>
 	<body>
-        <a href="dogovor.php">Договоры</a>
-        <h3>Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
-        <h2><?=$login?></h2>
-        <table border="1" cellspacing="0">
+        <?php require_once "blocks/header.php" ?>
+        <div id="logo">
+			<a href="dogovor.php">
+				<div class="logot">Перейти в договоры</div>
+			</a>
+        </div>
+        <h3 style="text-align: center">Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
+        <br /><table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
                 <th>Наименование организатора</th>
@@ -161,7 +165,7 @@
             ?>
 
             <tr>
-                <td colspan="17">Способом из одного истчника</td>
+                <td colspan="17">Способом из одного источника</td>
             </tr>
 
                 <?php
@@ -215,10 +219,15 @@
             ?>
 
         </table>
-		<form method="get" action="add_konkurs_form.php">	
-			<h3>Внести новые данные по конкурсу</h3>
-			<input type="submit" value="Подтвердить">
-		</form>
+		<!-- <form method="get" action="add_konkurs_form.php" style="text-align: center"><br />
+            <label>Внести новые данные по конкурсу</label><br />
+			<input type="submit" value="Подтвердить" class="podtv">
+        </form> -->
+        <div id="logo1">
+			<a href="add_konkurs_form.php">
+				<div class="logot1" style="text-align: center;" >Внести новые данные по конкурсу</div>
+			</a>
+        </div>
 
 	</body>
 </html>
