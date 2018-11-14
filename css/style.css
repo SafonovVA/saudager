@@ -61,7 +61,7 @@ header img {
 }
 
 .next form input:focus {
-	border: 2px solid #6495ED;
+	/* border: 2px solid #6495ED; */
 }
 
 input.podtv {
@@ -71,8 +71,8 @@ input.podtv {
 
 input.podtv:hover {
 	cursor: pointer;
-	border: 2px solid #6495ED;
-	-webkit-transition: all.6s ease;
+	background-color: #c4c9c4;
+	-webkit-transition: all.s ease;
 	-moz-transition: all.6s ease;
 	-o-transition: all.6s ease;
 	-ms-transition: all.6s ease;
