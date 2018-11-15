@@ -274,7 +274,17 @@ require_once "connect.php";
 			echo $row["prim"];
 		};
 		closeDB();
-    }
+		}
+		
+		function all($number) {
+			global $mysqli;
+			connectDB();
+			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+			while (($row = $result_set->fetch_assoc()) != false){
+				return $row;
+			};
+			closeDB();
+			}
 
     function vyshestoyashee_id_n($naimenovanie) {
 			global $mysqli;

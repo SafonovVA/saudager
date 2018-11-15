@@ -234,7 +234,7 @@
 				<div class="logot1">Внести новые данные по договору</div>
 			</a>
         </div>
-
+        <?php require_once "blocks/footer.php"?>
 	</body>
 </html>
 

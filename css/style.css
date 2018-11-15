@@ -32,6 +32,38 @@ header img {
 	margin-left: 15%;
 }
 
+/* For footer */
+footer {
+	margin-top: 30px;
+	width: 100%;
+	float: left;
+	background-color: green;
+	border-top: 5px solid green;
+	border-bottom: 5px solid green;
+	margin-top: 10px;
+	height: 30px;
+}
+
+footer #social {
+	float: left;
+	text-align: right;
+	font-size: 1.1em;
+	color: white;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+footer #rights {
+	float: right;
+	width: 50%;
+	text-align: right;
+	font-size: 1.1em;
+	color: white;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+
 /*Authorization form style*/
 
 .next form {
@@ -136,6 +168,66 @@ input.podtv:hover {
 	background-color: white;
 	border-top: 15px solid white;
 	border-bottom: 23px solid white;
+	border-radius: 5px;
+	-webkit-transition: all.3s ease;
+	-moz-transition: all.3s ease;
+	-o-transition: all.3s ease;
+	-ms-transition: all.3s ease;
+	transition: all.3s ease;
+}
+
+/* for FORM of KONKURS */
+
+form.konkurs_form {
+	
+}
+
+form.konkurs_form .input {
+	margin-left: 40px;
+}
+
+form.konkurs_form label {
+	color: #696969;
+	margin-left: 40px;
+}
+
+input.podtv1 {
+	color: #696969;
+	font-weight: bold;
+	font-size: 12pt;
+	padding: 5px;
+}
+
+input.podtv1:hover {
+	cursor: pointer;
+	background-color: #c4c9c4;
+	-webkit-transition: all.s ease;
+	-moz-transition: all.6s ease;
+	-o-transition: all.6s ease;
+	-ms-transition: all.6s ease;
+	transition: all.6s ease;
+}
+
+.logot,
+.logot1 {
+	margin-left: 40px;
+	background-color: green;
+	width: 30%;
+	font-family: "Times new Roman", Arial, sans-serif;
+	font-size: 1em;
+	color: white;
+	text-align: center;
+	border-top: 5px solid green;
+	border-bottom: 8px solid green;
+	border-radius: 5px;
+}
+
+.logot:hover,
+.logot1:hover {
+	background-color: white;
+	border-top: 15px solid white;
+	border-bottom: 23px solid white;
+	color: green;
 	border-radius: 5px;
 	-webkit-transition: all.3s ease;
 	-moz-transition: all.3s ease;

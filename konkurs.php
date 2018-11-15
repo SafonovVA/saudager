@@ -9,7 +9,9 @@
 		?>
 	</head>
 	<body>
-        <?php require_once "blocks/header.php" ?>
+        
+        <?php 
+        require_once "blocks/header.php" ?>
         <div id="logo">
 			<a href="dogovor.php">
 				<div class="logot">Перейти в договоры</div>
@@ -70,21 +72,30 @@
                 $fifth = 0;
                 $sixth = 0;
                 for ($i = $num; $i >= 1; $i--) {
-                    if ($login == 2456) {
-                        if (vydelennyi_limit_n($i) < 40000) {
-                            continue;  
-                        }
+                    if ($login == 2456) {                     
+                        if (vydelennyi_limit_n($i) < 40000) continue;          
+                            $mass = all($i);
+                            $mass = array_values($mass);
+                            echo "<tr>";
+                            for ($j = 1; $j <= 17; $j++) {
+                                echo "<td>$mass[$j]</td>";
+                            }
+                            echo "</tr>";
                     }
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
                             if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
-                                continue;  
+                                continue;
+                                echo "<tr>";
+                                for ($j = $i; $j < 16; ) {
+                                    echo "<td>".all($j)."</td>";
+                                }
                         }
                     }
                     else {
                         if (vydelennyi_limit_n($i) < 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
-                            continue;  
+                            continue;
                         }
                     }
                     $first += vydelennyi_limit_n($i);
@@ -95,25 +106,9 @@
                     $sixth += summ_povtor_n($i);
             ?>
 
-            <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
-                <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
-            </tr>
+            <!-- <tr>
+                
+            </tr> -->
             <?php
 #_________________________________Закрытие скобок свыше 4000МРП
                }
@@ -142,10 +137,15 @@
 # ------------------------Код для таблицы меньше 40000 МРG
 #------------------------------------------------------------------------------------
                 for ($i = $num; $i >= 1; $i--) {
-                    if ($login == 2456) {
-                        if (vydelennyi_limit_n($i) > 40000) {
-                            continue;  
-                        }
+                    if ($login == 2456) {                     
+                        if (vydelennyi_limit_n($i) > 40000) continue;          
+                            $mass = all($i);
+                            $mass = array_values($mass);
+                            echo "<tr>";
+                            for ($j = 1; $j <= 17; $j++) {
+                                echo "<td>$mass[$j]</td>";
+                            }
+                            echo "</tr>";
                     }
 
                     elseif (in_array($login, $great)) {
@@ -163,25 +163,9 @@
                     }
             ?>
 
-            <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
-                <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
-            </tr>
+            <!-- <tr>
+
+            </tr> -->
 
             <?php
 #_________________________________Закрытие скобок меньше 4000МРП
@@ -206,6 +190,13 @@
                         if (naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) {
                             continue;  
                         }
+                        $mass = all($i);
+                        $mass = array_values($mass);
+                        echo "<tr>";
+                        for ($j = 1; $j <= 17; $j++) {
+                            echo "<td>$mass[$j]</td>";
+                        }
+                        echo "</tr>";
                     }
                 
                     elseif (in_array($login, $great)) {
@@ -229,25 +220,8 @@
                     $sixth += summ_povtor_n($i);
                     ?>
 
-            <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
-                <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
-            </tr>
+            <!-- <tr>
+            </tr> -->
 
             <?php
 #_________________________________Закрытие скобок способом из одного источника
@@ -258,7 +232,7 @@
                 <td></td>
                 <td></td>
                 <th>Итого:</th>
-                <th><?= $first ?></th>
+                <th><?= $first." тыс. тенге" ?></th>
                 <th><?= $second ?></th>
                 <td colspan="5"></td>
                 <th><?= $third ?></th>
@@ -279,7 +253,7 @@
 				<div class="logot1" style="text-align: center;" >Внести новые данные по конкурсу</div>
 			</a>
         </div>
-
+        <?php require_once "blocks/footer.php"?>      
 	</body>
 </html>
 

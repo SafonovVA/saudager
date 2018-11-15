@@ -1,5 +1,7 @@
 <?php
 	require_once "functions/connect.php";
+	require_once "blocks/header.php";
+
 ?>
 
 <meta charset="utf8">

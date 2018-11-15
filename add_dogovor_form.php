@@ -27,6 +27,6 @@
             <input type="text" placeholder="Примечание" name="prim"><br />
 			<input type="submit" value="Подтвердить" name="vvod_konkurs">
 		</form>
-        
+        <?php require_once "blocks/footer.php"?>
 	</body>
 </html>
