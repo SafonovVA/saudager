@@ -114,7 +114,17 @@ require_once "connect.php";
 			echo $row["predusmotr_summ"];
 		};
 		closeDB();
-    }
+		}
+		
+		function predusmotr_summ_n($number) {
+			global $mysqli;
+			connectDB();
+			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+			while (($row = $result_set->fetch_assoc()) != false){
+				return $row["predusmotr_summ"];
+			};
+			closeDB();
+			}
 
     function plan_data_objavl($number) {
 		global $mysqli;
@@ -174,7 +184,17 @@ require_once "connect.php";
 			echo $row["summ_sost_lot"];
 		};
 		closeDB();
-    }
+		}
+		
+		function summ_sost_lot_n($number) {
+			global $mysqli;
+			connectDB();
+			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+			while (($row = $result_set->fetch_assoc()) != false){
+				return $row["summ_sost_lot"];
+			};
+			closeDB();
+			}
     
     function summ_nesost_lot($number) {
 		global $mysqli;
@@ -184,7 +204,17 @@ require_once "connect.php";
 			echo $row["summ_nesost_lot"];
 		};
 		closeDB();
-    }
+		}
+		
+    function summ_nesost_lot_n($number) {
+			global $mysqli;
+			connectDB();
+			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+			while (($row = $result_set->fetch_assoc()) != false){
+				return $row["summ_nesost_lot"];
+			};
+			closeDB();
+			}
         
     function econom_sost_lot($number) {
 		global $mysqli;
@@ -194,7 +224,17 @@ require_once "connect.php";
 			echo $row["econom_sost_lot"];
 		};
 		closeDB();
-    }
+		}
+		
+		function econom_sost_lot_n($number) {
+			global $mysqli;
+			connectDB();
+			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+			while (($row = $result_set->fetch_assoc()) != false){
+				return $row["econom_sost_lot"];
+			};
+			closeDB();
+			}
             
     function sposob_odin_ist($number) {
 		global $mysqli;
@@ -214,7 +254,17 @@ require_once "connect.php";
 			echo $row["summ_povtor"];
 		};
 		closeDB();
-    }
+		}
+		
+		function summ_povtor_n($number) {
+			global $mysqli;
+			connectDB();
+			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
+			while (($row = $result_set->fetch_assoc()) != false){
+				return $row["summ_povtor"];
+			};
+			closeDB();
+			}
 
     function prim($number) {
 		global $mysqli;
