@@ -286,7 +286,7 @@ require_once "connect.php";
 			closeDB();
 			}
 
-    function vyshestoyashee_id_n($naimenovanie) {
+    function vyshestoyashee_id_n($naimenovanie) { #Принимает подразделение, а возвращает массив ему подчиненных
 			global $mysqli;
 			connectDB();
 			switch($naimenovanie) {
