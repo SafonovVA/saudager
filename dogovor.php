@@ -76,14 +76,14 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if (obw_summ_s_nds_n($i) < 40000 || (!in_array( zakazchik_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
+                            if (obw_summ_s_nds_n($i) < 40000 || (!in_array( zakazchik_n($i),$reg) && !in_array(zakazchik_n($i), $reg))) {
                                 continue;  
                         }
                     }
 
 
                     else {
-                        if (obw_summ_s_nds_n($i) < 40000 || ((zakazchik_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
+                        if (obw_summ_s_nds_n($i) < 40000 || ((zakazchik_n($i) != $login) && (zakazchik_n($i) != $login))) {
                             continue;  
                         }
                     }
@@ -131,13 +131,13 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if (obw_summ_s_nds_n($i) > 40000 || (!in_array(zakazchik_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
+                            if (obw_summ_s_nds_n($i) > 40000 || (!in_array(zakazchik_n($i),$reg) && !in_array(zakazchik_n($i),$reg))) {
                                 continue;  
                         }
                     }
 
                     else {
-                        if (obw_summ_s_nds_n($i) > 40000 || ((zakazchik_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
+                        if (obw_summ_s_nds_n($i) > 40000 || ((zakazchik_n($i) != $login) && (zakazchik_n($i) != $login))) {
                             continue;  
                         }
                     }
@@ -178,7 +178,7 @@
 #------------------------------------------------------------------------------------
 //                 for ($i = $num; $i >= 1; $i--) {
 //                     if ($login == 2456) {
-//                         if (zakazchik($i) != naimenovanie_zakazchik_n($i)) {
+//                         if (zakazchik($i) != zakazchik_n($i)) {
 //                             continue;  
 //                         }
 //                     }
@@ -186,13 +186,13 @@
 //                     elseif (in_array($login, $great)) {
 //                         $reg = vyshestoyashee_id_n($login);
 //                         $reg[] = $login;
-//                             if ((zakazchik($i) != naimenovanie_zakazchik_n($i)) || (!in_array( zakazchik_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
+//                             if ((zakazchik($i) != zakazchik_n($i)) || (!in_array( zakazchik_n($i),$reg) && !in_array(zakazchik_n($i), $reg))) {
 //                                 continue;  
 //                         }
 //                     }    
 
 //                     else {
-//                         if ((zakazchik($i) != naimenovanie_zakazchik_n($i))  || ((zakazchik_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
+//                         if ((zakazchik($i) != zakazchik_n($i))  || ((zakazchik_n($i) != $login) && (zakazchik_n($i) != $login))) {
 //                             continue;  
 //                         }
 //                     }

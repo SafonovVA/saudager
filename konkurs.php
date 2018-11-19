@@ -87,11 +87,7 @@
                         $reg[] = $login;
                             if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
                                 continue;
-                                echo "<tr>";
-                                for ($j = $i; $j < 16; ) {
-                                    echo "<td>".all($j)."</td>";
-                                }
-                        }
+                            }       
                     }
                     else {
                         if (vydelennyi_limit_n($i) < 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
@@ -106,9 +102,25 @@
                     $sixth += summ_povtor_n($i);
             ?>
 
-            <!-- <tr>
-                
-            </tr> -->
+            <tr>
+                <td><?= nomer_konkurs($i); ?></td>
+                <td><?= naimenovanie_podrazd($i); ?></td>
+                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= vydelennyi_limit($i); ?></td>
+                <td><?= predusmotr_summ($i); ?></td>
+                <td><?= plan_data_objavl($i); ?></td>
+                <td><?= plan_data_prov($i); ?></td>
+                <td><?= fact_data_objavl($i); ?></td>
+                <td><?= fact_data_prov($i); ?></td>
+                <td><?= data_itog($i); ?></td>
+                <td><?= summ_sost_lot($i); ?></td>
+                <td><?= summ_nesost_lot($i); ?></td>
+                <td><?= econom_sost_lot($i); ?></td>
+                <td><?= sposob_odin_ist($i); ?></td>
+                <td><?= summ_povtor($i); ?></td>
+                <td><?= prim($i); ?></td>
+            </tr>
             <?php
 #_________________________________Закрытие скобок свыше 4000МРП
                }
@@ -163,10 +175,26 @@
                     }
             ?>
 
-            <!-- <tr>
-
-            </tr> -->
-
+            <tr>
+                <td><?= nomer_konkurs($i); ?></td>
+                <td><?= naimenovanie_podrazd($i); ?></td>
+                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= vydelennyi_limit($i); ?></td>
+                <td><?= predusmotr_summ($i); ?></td>
+                <td><?= plan_data_objavl($i); ?></td>
+                <td><?= plan_data_prov($i); ?></td>
+                <td><?= fact_data_objavl($i); ?></td>
+                <td><?= fact_data_prov($i); ?></td>
+                <td><?= data_itog($i); ?></td>
+                <td><?= summ_sost_lot($i); ?></td>
+                <td><?= summ_nesost_lot($i); ?></td>
+                <td><?= econom_sost_lot($i); ?></td>
+                <td><?= sposob_odin_ist($i); ?></td>
+                <td><?= summ_povtor($i); ?></td>
+                <td><?= prim($i); ?></td>
+            </tr>
+Ы
             <?php
 #_________________________________Закрытие скобок меньше 4000МРП
                }
@@ -220,8 +248,25 @@
                     $sixth += summ_povtor_n($i);
                     ?>
 
-            <!-- <tr>
-            </tr> -->
+            <tr>
+                <td><?= nomer_konkurs($i); ?></td>
+                <td><?= naimenovanie_podrazd($i); ?></td>
+                <td><?= naimenovanie_zakazchik($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= vydelennyi_limit($i); ?></td>
+                <td><?= predusmotr_summ($i); ?></td>
+                <td><?= plan_data_objavl($i); ?></td>
+                <td><?= plan_data_prov($i); ?></td>
+                <td><?= fact_data_objavl($i); ?></td>
+                <td><?= fact_data_prov($i); ?></td>
+                <td><?= data_itog($i); ?></td>
+                <td><?= summ_sost_lot($i); ?></td>
+                <td><?= summ_nesost_lot($i); ?></td>
+                <td><?= econom_sost_lot($i); ?></td>
+                <td><?= sposob_odin_ist($i); ?></td>
+                <td><?= summ_povtor($i); ?></td>
+                <td><?= prim($i); ?></td>
+            </tr>
 
             <?php
 #_________________________________Закрытие скобок способом из одного источника

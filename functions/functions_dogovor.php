@@ -255,6 +255,8 @@ function naimenovanie_podrazd_n($number) {
 	};
 	closeDB();
 	}
+
+	
 	#__________________________________________________________
 
 	function obw_summ_s_nds_n($number) {
