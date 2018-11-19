@@ -8,16 +8,17 @@
             $num = num_rows ();
 		?>
 	</head>
-	<body>
-        
-        <?php 
-        require_once "blocks/header.php" ?>
+	<body>  
+        <?php require_once "blocks/header.php" ?>
         <div id="logo">
 			<a href="dogovor.php">
 				<div class="logot">Перейти в договоры</div>
 			</a>
+            <a href="konkurs.php">
+				<div class="logot">Обновить</div>
+			</a>
         </div>
-        <h3 style="text-align: center">Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3>
+        <div class="zagolovok"><h3 style="text-align: center">Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3></div>
         <br /><table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
@@ -85,14 +86,24 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
-                                continue;
-                            }       
+                            if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) continue;
+                            $mass = all($i);
+                            $mass = array_values($mass);
+                            echo "<tr>";
+                            for ($j = 1; $j <= 17; $j++) {
+                                echo "<td>$mass[$j]</td>";
+                            }
+                            echo "</tr>";       
                     }
                     else {
-                        if (vydelennyi_limit_n($i) < 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
-                            continue;
-                        }
+                        if (vydelennyi_limit_n($i) < 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) continue;
+                            $mass = all($i);
+                            $mass = array_values($mass);
+                            echo "<tr>";
+                            for ($j = 1; $j <= 17; $j++) {
+                                echo "<td>$mass[$j]</td>";
+                            }
+                            echo "</tr>"; 
                     }
                     $first += vydelennyi_limit_n($i);
                     $second += predusmotr_summ_n($i);
@@ -100,31 +111,9 @@
                     $fourth += summ_nesost_lot_n($i);
                     $fifth += econom_sost_lot_n($i);
                     $sixth += summ_povtor_n($i);
-            ?>
-
-            <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
-                <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
-            </tr>
-            <?php
+                }
+            
 #_________________________________Закрытие скобок свыше 4000МРП
-               }
-               
             ?>
             <tr>
                 <td></td>
@@ -163,41 +152,28 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if (vydelennyi_limit_n($i) > 40000 || (!in_array(naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
-                                continue;  
+                            if (vydelennyi_limit_n($i) > 40000 || (!in_array(naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) continue;
+                        $mass = all($i);
+                        $mass = array_values($mass);
+                        echo "<tr>";
+                        for ($j = 1; $j <= 17; $j++) {
+                            echo "<td>$mass[$j]</td>";
                         }
+                            echo "</tr>";  
                     }
 
                     else {
-                        if (vydelennyi_limit_n($i) > 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
-                            continue;  
+                        if (vydelennyi_limit_n($i) > 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) continue;
+                        $mass = all($i);
+                        $mass = array_values($mass);
+                        echo "<tr>";
+                        for ($j = 1; $j <= 17; $j++) {
+                            echo "<td>$mass[$j]</td>";
                         }
+                        echo "</tr>";    
                     }
-            ?>
-
-            <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
-                <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
-            </tr>
-Ы
-            <?php
+                }
 #_________________________________Закрытие скобок меньше 4000МРП
-               }
             ?>
 
             <tr>
@@ -205,7 +181,7 @@
             </tr>
 
                 <?php
-# ------------------------Код для таблицы способом из одного источника
+#------------------------Код для таблицы способом из одного источника
 #------------------------------------------------------------------------------------
                 $first = 0;
                 $second = 0;
@@ -215,9 +191,7 @@
                 $sixth = 0;
                 for ($i = $num; $i >= 1; $i--) {
                     if ($login == 2456) {
-                        if (naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) {
-                            continue;  
-                        }
+                        if (naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) continue;  
                         $mass = all($i);
                         $mass = array_values($mass);
                         echo "<tr>";
@@ -230,15 +204,25 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) {
-                                continue;  
-                        }
+                            if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) continue;
+                            $mass = all($i);
+                            $mass = array_values($mass);
+                            echo "<tr>";
+                            for ($j = 1; $j <= 17; $j++) {
+                                echo "<td>$mass[$j]</td>";
+                            }
+                            echo "</tr>"; 
                     }    
 
                     else {
-                        if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i))  || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) {
-                            continue;  
+                        if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i))  || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) continue;
+                        $mass = all($i);
+                        $mass = array_values($mass);
+                        echo "<tr>";
+                        for ($j = 1; $j <= 17; $j++) {
+                            echo "<td>$mass[$j]</td>";
                         }
+                        echo "</tr>"; 
                     }
                     $first += vydelennyi_limit_n($i);
                     $second += predusmotr_summ_n($i);
@@ -246,31 +230,10 @@
                     $fourth += summ_nesost_lot_n($i);
                     $fifth += econom_sost_lot_n($i);
                     $sixth += summ_povtor_n($i);
+                }
                     ?>
-
-            <tr>
-                <td><?= nomer_konkurs($i); ?></td>
-                <td><?= naimenovanie_podrazd($i); ?></td>
-                <td><?= naimenovanie_zakazchik($i); ?></td>
-                <td><?= naimenovanie_konkurs($i); ?></td>
-                <td><?= vydelennyi_limit($i); ?></td>
-                <td><?= predusmotr_summ($i); ?></td>
-                <td><?= plan_data_objavl($i); ?></td>
-                <td><?= plan_data_prov($i); ?></td>
-                <td><?= fact_data_objavl($i); ?></td>
-                <td><?= fact_data_prov($i); ?></td>
-                <td><?= data_itog($i); ?></td>
-                <td><?= summ_sost_lot($i); ?></td>
-                <td><?= summ_nesost_lot($i); ?></td>
-                <td><?= econom_sost_lot($i); ?></td>
-                <td><?= sposob_odin_ist($i); ?></td>
-                <td><?= summ_povtor($i); ?></td>
-                <td><?= prim($i); ?></td>
-            </tr>
-
             <?php
 #_________________________________Закрытие скобок способом из одного источника
-               }
             ?>
             <tr>
                 <td></td>
@@ -289,10 +252,6 @@
             </tr>
 
         </table>
-		<!-- <form method="get" action="add_konkurs_form.php" style="text-align: center"><br />
-            <label>Внести новые данные по конкурсу</label><br />
-			<input type="submit" value="Подтвердить" class="podtv">
-        </form> -->
         <div id="logo1">
 			<a href="add_konkurs_form.php">
 				<div class="logot1" style="text-align: center;" >Внести новые данные по конкурсу</div>
@@ -301,5 +260,4 @@
         <?php require_once "blocks/footer.php"?>      
 	</body>
 </html>
-
 

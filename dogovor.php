@@ -14,8 +14,11 @@
 			<a href="konkurs.php">
 				<div class="logot">Перейти в конкурсы</div>
 			</a>
+            <a href="dogovor.php">
+				<div class="logot">Обновить</div>
+			</a>
         </div>
-        <h3  style="text-align: center">Сведения о договорах по состоянию на <?=date('d.m.Y')?> года</h3>
+        <div class="zagolovok"><h3  style="text-align: center">Сведения о договорах по состоянию на <?=date('d.m.Y')?> года</h3></div>
         <table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
@@ -26,7 +29,7 @@
                 <th>Предмет договора</th>
                 <th>Сумма договора без учета НДС</th>
                 <th>Сумма договора с учетом НДС</th>
-                <th>№ и дата внесения поставщиком обеспечения </th>
+                <th>№ и дата внесения поставщиком обеспечения</th>
                 <th>Сумма внесенного обеспечения (с учетом???)</th>
                 <th>№ и дата заключения доп.</th>
                 <th>Сумма дополнительного без учета НДС</th>
@@ -76,14 +79,14 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if (obw_summ_s_nds_n($i) < 40000 || (!in_array( zakazchik_n($i),$reg) && !in_array(zakazchik_n($i), $reg))) {
+                            if (obw_summ_s_nds_n($i) < 40000 || (!in_array( postavshik_n($i),$reg) && !in_array(zakazchik_n($i), $reg))) {
                                 continue;  
                         }
                     }
 
 
                     else {
-                        if (obw_summ_s_nds_n($i) < 40000 || ((zakazchik_n($i) != $login) && (zakazchik_n($i) != $login))) {
+                        if (obw_summ_s_nds_n($i) < 40000 || ((postavshik_n($i) != $login) && (zakazchik_n($i) != $login))) {
                             continue;  
                         }
                     }
@@ -131,13 +134,13 @@
                     elseif (in_array($login, $great)) {
                         $reg = vyshestoyashee_id_n($login);
                         $reg[] = $login;
-                            if (obw_summ_s_nds_n($i) > 40000 || (!in_array(zakazchik_n($i),$reg) && !in_array(zakazchik_n($i),$reg))) {
+                            if (obw_summ_s_nds_n($i) > 40000 || (!in_array(postavshik_n($i),$reg) && !in_array(zakazchik_n($i),$reg))) {
                                 continue;  
                         }
                     }
 
                     else {
-                        if (obw_summ_s_nds_n($i) > 40000 || ((zakazchik_n($i) != $login) && (zakazchik_n($i) != $login))) {
+                        if (obw_summ_s_nds_n($i) > 40000 || ((postavshik_n($i) != $login) && (zakazchik_n($i) != $login))) {
                             continue;  
                         }
                     }
@@ -176,52 +179,52 @@
                 <?php
 # ------------------------Код для таблицы способом из одного источника
 #------------------------------------------------------------------------------------
-//                 for ($i = $num; $i >= 1; $i--) {
-//                     if ($login == 2456) {
-//                         if (zakazchik($i) != zakazchik_n($i)) {
-//                             continue;  
-//                         }
-//                     }
+                for ($i = $num; $i >= 1; $i--) {
+                    if ($login == 2456) {
+                        if (postavshik_n($i) != zakazchik_n($i)) {
+                            continue;  
+                        }
+                    }
                 
-//                     elseif (in_array($login, $great)) {
-//                         $reg = vyshestoyashee_id_n($login);
-//                         $reg[] = $login;
-//                             if ((zakazchik($i) != zakazchik_n($i)) || (!in_array( zakazchik_n($i),$reg) && !in_array(zakazchik_n($i), $reg))) {
-//                                 continue;  
-//                         }
-//                     }    
+                    elseif (in_array($login, $great)) {
+                        $reg = vyshestoyashee_id_n($login);
+                        $reg[] = $login;
+                            if ((postavshik_n($i) != zakazchik_n($i)) || (!in_array( postavshik_n($i),$reg) && !in_array(zakazchik_n($i), $reg))) {
+                                continue;  
+                        }
+                    }    
 
-//                     else {
-//                         if ((zakazchik($i) != zakazchik_n($i))  || ((zakazchik_n($i) != $login) && (zakazchik_n($i) != $login))) {
-//                             continue;  
-//                         }
-//                     }
-//                     ?>
+                    else {
+                        if ((postavshik_n($i) != zakazchik_n($i))  || ((postavshik_n($i) != $login) && (zakazchik_n($i) != $login))) {
+                            continue;  
+                        }
+                    }
+                    ?>
 
-//             <!-- <tr>
-//                 <td><?= id_dogovor($i); ?></td>
-//                 <td><?= naimenovanie_konkurs($i); ?></td>
-//                 <td><?= zakazchik($i); ?></td>
-//                 <td><?= postavshik($i); ?></td>
-//                 <td><?= nomer_data_dogovor($i); ?></td>
-//                 <td><?= predmet_dogovor($i); ?></td>
-//                 <td><?= summa_dogovor_bez_nds($i); ?></td>
-//                 <td><?= summa_dogovor_s_nds($i); ?></td>
-//                 <td><?= nomer_data_postavsik($i); ?></td>
-//                 <td><?= summa_vnes_obesp($i); ?></td>
-//                 <td><?= nomer_data_dop($i); ?></td>
-//                 <td><?= summa_dop_bez_nds($i); ?></td>
-//                 <td><?= summa_dop_s_nds($i); ?></td>
-//                 <td><?= obw_summ_bez_nds($i); ?></td>
-//                 <td><?= obw_summ_s_nds($i); ?></td>
-//                 <td><?= srok_isp_dogovor($i); ?></td>
-//                 <td><?= nomer_data_akt_isp($i); ?></td>
-//                 <td><?= summa_isp_dogovor($i); ?></td>
-//             </tr> -->
+            <tr>
+                <td><?= nomer_dogovor($i); ?></td>
+                <td><?= naimenovanie_konkurs($i); ?></td>
+                <td><?= zakazchik($i); ?></td>
+                <td><?= postavshik($i); ?></td>
+                <td><?= nomer_data_dogovor($i); ?></td>
+                <td><?= predmet_dogovor($i); ?></td>
+                <td><?= summa_dogovor_bez_nds($i); ?></td>
+                <td><?= summa_dogovor_s_nds($i); ?></td>
+                <td><?= nomer_data_postavsik($i); ?></td>
+                <td><?= summa_vnes_obesp($i); ?></td>
+                <td><?= nomer_data_dop($i); ?></td>
+                <td><?= summa_dop_bez_nds($i); ?></td>
+                <td><?= summa_dop_s_nds($i); ?></td>
+                <td><?= obw_summ_bez_nds($i); ?></td>
+                <td><?= obw_summ_s_nds($i); ?></td>
+                <td><?= srok_isp_dogovor($i); ?></td>
+                <td><?= nomer_data_akt_isp($i); ?></td>
+                <td><?= summa_isp_dogovor($i); ?></td>
+            </tr>
 
-//             <?php
+            <?php
 // #_________________________________Закрытие скобок способом из одного источника
-//                }
+             }
 //             ?>
 
         </table>

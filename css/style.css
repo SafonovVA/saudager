@@ -136,9 +136,9 @@ input.podtv:hover {
 }
 
 #logo {
-	/* float: left; */
+	float: left;
 	/* margin: 20px; */
-	width: 50%;
+	width: 100%;
 	font-size: 1.5em;
 	margin-top: 8px;
 	margin-left: 20px;
@@ -153,7 +153,15 @@ input.podtv:hover {
 	padding-left: 20px;
 } 
 
-#logo div.logot,
+#logo div.logot {
+	background-color: green;
+	width: 20%;
+	text-align: center;
+	border-top: 5px solid green;
+	border-bottom: 8px solid green;
+	border-radius: 5px;
+}
+
 #logo1 div.logot1 {
 	background-color: green;
 	width: 30%;
@@ -166,8 +174,8 @@ input.podtv:hover {
 #logo div.logot:hover,
 #logo1 div.logot1:hover {
 	background-color: white;
-	border-top: 15px solid white;
-	border-bottom: 23px solid white;
+	border-top: 5px solid white;
+	border-bottom: 8px solid white;
 	border-radius: 5px;
 	-webkit-transition: all.3s ease;
 	-moz-transition: all.3s ease;

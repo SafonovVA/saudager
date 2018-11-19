@@ -251,10 +251,20 @@ function naimenovanie_podrazd_n($number) {
 	connectDB();
 	$result_set = $mysqli->query("SELECT * FROM `dogovor` WHERE `id_dogovor`= '$number'");					
 	while (($row = $result_set->fetch_assoc()) != false){
-		return $row["zakazchik_n"];
+		return $row["zakazchik"];
 	};
 	closeDB();
 	}
+
+	function postavshik_n($number) {
+		global $mysqli;
+		connectDB();
+		$result_set = $mysqli->query("SELECT * FROM `dogovor` WHERE `id_dogovor`= '$number'");					
+		while (($row = $result_set->fetch_assoc()) != false){
+			return $row["postavshik"];
+		};
+		closeDB();
+		}
 
 	
 	#__________________________________________________________
@@ -264,7 +274,7 @@ function naimenovanie_podrazd_n($number) {
 		connectDB();
 		$result_set = $mysqli->query("SELECT * FROM `dogovor` WHERE `id_dogovor`= '$number'");					
 		while (($row = $result_set->fetch_assoc()) != false){
-			return $row["obw_summ_s_nds_n"];
+			return $row["obw_summ_s_nds"];
 		};
 		closeDB();
     }
