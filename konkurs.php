@@ -18,8 +18,10 @@
 				<div class="logot">Обновить</div>
 			</a>
         </div>
+        <br /><br /><br />
         <div class="zagolovok"><h3 style="text-align: center">Сведения о конкурсах по состоянию на <?=date('d.m.Y')?> года</h3></div>
-        <br /><table border="1" cellspacing="0">
+        <br />
+        <table border="1" cellspacing="0">
             <tr>
                 <th>№ п/п</th>
                 <th>Наименование организатора</th>
