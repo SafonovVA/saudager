@@ -281,6 +281,7 @@ require_once "connect.php";
 			connectDB();
 			$result_set = $mysqli->query("SELECT * FROM `konkurs` WHERE `id_konkurs`= '$number'");					
 			while (($row = $result_set->fetch_assoc()) != false){
+				if ($row == NULL) continue;
 				return $row;
 			};
 			closeDB();

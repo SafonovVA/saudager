@@ -78,6 +78,7 @@
                     if ($login == 2456) {                     
                         if (vydelennyi_limit_n($i) < 40000) continue;          
                             $mass = all($i);
+                            if ($mass == NULL) continue;
                             $mass = array_values($mass);
                             echo "<tr>";
                             for ($j = 1; $j <= 17; $j++) {
@@ -90,6 +91,7 @@
                         $reg[] = $login;
                             if (vydelennyi_limit_n($i) < 40000 || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) continue;
                             $mass = all($i);
+                            if ($mass == NULL) continue;
                             $mass = array_values($mass);
                             echo "<tr>";
                             for ($j = 1; $j <= 17; $j++) {
@@ -100,6 +102,7 @@
                     else {
                         if (vydelennyi_limit_n($i) < 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) continue;
                             $mass = all($i);
+                            if ($mass == NULL) continue;
                             $mass = array_values($mass);
                             echo "<tr>";
                             for ($j = 1; $j <= 17; $j++) {
@@ -143,6 +146,7 @@
                     if ($login == 2456) {                     
                         if (vydelennyi_limit_n($i) > 40000) continue;          
                             $mass = all($i);
+                            if ($mass == NULL) continue;
                             $mass = array_values($mass);
                             echo "<tr>";
                             for ($j = 1; $j <= 17; $j++) {
@@ -156,6 +160,7 @@
                         $reg[] = $login;
                             if (vydelennyi_limit_n($i) > 40000 || (!in_array(naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) continue;
                         $mass = all($i);
+                        if ($mass == NULL) continue;
                         $mass = array_values($mass);
                         echo "<tr>";
                         for ($j = 1; $j <= 17; $j++) {
@@ -167,6 +172,7 @@
                     else {
                         if (vydelennyi_limit_n($i) > 40000 || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) continue;
                         $mass = all($i);
+                        if ($mass == NULL) continue;
                         $mass = array_values($mass);
                         echo "<tr>";
                         for ($j = 1; $j <= 17; $j++) {
@@ -195,6 +201,7 @@
                     if ($login == 2456) {
                         if (naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) continue;  
                         $mass = all($i);
+                        if ($mass == NULL) continue;
                         $mass = array_values($mass);
                         echo "<tr>";
                         for ($j = 1; $j <= 17; $j++) {
@@ -208,6 +215,7 @@
                         $reg[] = $login;
                             if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i)) || (!in_array( naimenovanie_podrazd_n($i),$reg) && !in_array(naimenovanie_zakazchik_n($i), $reg))) continue;
                             $mass = all($i);
+                            if ($mass == NULL) continue;
                             $mass = array_values($mass);
                             echo "<tr>";
                             for ($j = 1; $j <= 17; $j++) {
@@ -219,6 +227,7 @@
                     else {
                         if ((naimenovanie_podrazd_n($i) != naimenovanie_zakazchik_n($i))  || ((naimenovanie_podrazd_n($i) != $login) && (naimenovanie_zakazchik_n($i) != $login))) continue;
                         $mass = all($i);
+                        if ($mass == NULL) continue;
                         $mass = array_values($mass);
                         echo "<tr>";
                         for ($j = 1; $j <= 17; $j++) {
